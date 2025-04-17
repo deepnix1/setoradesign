@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Setora Design - Premium Office Furniture Solutions">
+    <title>Products - Setora Design</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Products page specific styles */
+        .products-hero {
+            position: relative;
+            height: 40vh;
+            min-height: 300px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./assets/thestandingdesk-sGdVTZ0wt0s-unsplash.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 4rem;
+        }
+
+        .products-hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .products-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .products-hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+        }
+
+        .products-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem 6rem;
+        }
+
+        .products-categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .category-button {
+            padding: 0.75rem 1.5rem;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: var(--color-text);
+            background: white;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .category-button:hover,
+        .category-button.active {
+            background: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            position: relative;
+            border: 1px solid var(--color-border);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-primary);
+        }
+
+        .product-image {
+            position: relative;
+            height: 280px;
+            overflow: hidden;
+            background: var(--color-secondary);
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.5rem 1rem;
+            background: var(--color-primary);
+            color: white;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-radius: 6px;
+            z-index: 1;
+        }
+
+        .product-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .product-category {
+            font-size: 0.875rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .product-description {
+            font-size: 0.9375rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--color-border);
+            margin-top: auto;
+        }
+
+        .product-price {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--color-text);
+        }
+
+        .product-button {
+            padding: 0.625rem 1.25rem;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: var(--color-primary);
+            background: transparent;
+            border: 1px solid var(--color-primary);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .product-button:hover {
+            background: var(--color-primary);
+            color: white;
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .pagination-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 3rem;
+        }
+
+        .page-button {
+            min-width: 40px;
+            height: 40px;
+            padding: 0;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: var(--color-text);
+            background: white;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .page-button:hover {
+            background: var(--color-secondary);
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+        }
+
+        .page-button.active {
+            background: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+        }
+
+        .page-button.prev,
+        .page-button.next {
+            min-width: 100px;
+            padding: 0 1.25rem;
+        }
+
+        .page-numbers {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        @media (max-width: 1024px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .products-hero {
+                height: 30vh;
+            }
+            
+            .products-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .products-container {
+                padding: 0 1.5rem 4rem;
+            }
+            
+            .products-categories {
+                gap: 0.75rem;
+            }
+            
+            .category-button {
+                padding: 0.625rem 1.25rem;
+                font-size: 0.875rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .products-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .products-hero p {
+                font-size: 1rem;
+            }
+            
+            .product-image {
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="index.html" class="logo">
+                <img src="./assets/setora_logo1.png" alt="Setora Furniture & Design" class="logo-image">
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="products.html" class="active">Products</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <a href="contact.html" class="nav-button">Contact Sales</a>
+                <a href="products.html" class="nav-button primary">View Products</a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Products Hero -->
+    <section class="products-hero">
+        <div class="products-hero-content">
+            <h1>Our Products</h1>
+            <p>Discover our premium collection of office furniture designed for modern workspaces</p>
+        </div>
+    </section>
+
+    <!-- Products Container -->
+    <div class="products-container">
+        <!-- Products Categories -->
+        <div class="products-categories">
+            <button class="category-button active" data-category="all">All Products</button>
+            <button class="category-button" data-category="executive">Executive Office</button>
+            <button class="category-button" data-category="administrative">Administrative Office</button>
+            <button class="category-button" data-category="operational">Operational Office</button>
+            <button class="category-button" data-category="meeting">Meeting & Conference</button>
+            <button class="category-button" data-category="storage">Library & Storage</button>
+            <button class="category-button" data-category="break">Bistro & Cafe</button>
+            <button class="category-button" data-category="auxiliary">Lounge & Sofas</button>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="products-grid">
+            <!-- Product Card 1 -->
+            <article class="product-card" data-category="executive">
+                <div class="product-image">
+                    <img src="./image/images/office furnitures/Executive Office Furniture/image_31.jpg" alt="Executive Desk Set" loading="lazy">
+                    <span class="product-badge">Featured</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Executive Desk Set</h3>
+                    <p class="product-category">Executive Office</p>
+                    <p class="product-description">Premium executive desk with integrated storage and cable management system.</p>
+                    <div class="product-footer">
+                        <span class="product-price">Contact for Price</span>
+                        <a href="contact.html" class="product-button">Inquire Now</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Product Card 2 -->
+            <article class="product-card" data-category="meeting">
+                <div class="product-image">
+                    <img src="./image/images/office furnitures/Executive Office Furniture/image_30.jpg" alt="Modern Conference Table" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Modern Conference Table</h3>
+                    <p class="product-category">Meeting Rooms</p>
+                    <p class="product-description">Elegant conference table with built-in power solutions and sleek design.</p>
+                    <div class="product-footer">
+                        <span class="product-price">Contact for Price</span>
+                        <a href="contact.html" class="product-button">Inquire Now</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Product Card 3 -->
+            <article class="product-card" data-category="operational">
+                <div class="product-image">
+                    <img src="./image/images/office furnitures/Executive Office Furniture/image_29.jpg" alt="Modern Workstation" loading="lazy">
+                    <span class="product-badge">New</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Modern Workstation</h3>
+                    <p class="product-category">Operational Office</p>
+                    <p class="product-description">Ergonomic workstation designed for maximum productivity and comfort.</p>
+                    <div class="product-footer">
+                        <span class="product-price">Contact for Price</span>
+                        <a href="contact.html" class="product-button">Inquire Now</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Product Card 4 -->
+            <article class="product-card" data-category="executive">
+                <div class="product-image">
+                    <img src="./image/images/office furnitures/Executive Office Furniture/image_28.jpg" alt="Executive Chair" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Executive Chair</h3>
+                    <p class="product-category">Executive Office</p>
+                    <p class="product-description">Premium leather executive chair with ergonomic design and adjustable features.</p>
+                    <div class="product-footer">
+                        <span class="product-price">Contact for Price</span>
+                        <a href="contact.html" class="product-button">Inquire Now</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Product Card 5 -->
+            <article class="product-card" data-category="administrative">
+                <div class="product-image">
+                    <img src="./image/images/office furnitures/Executive Office Furniture/image_27.jpg" alt="Workstation System" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Workstation System</h3>
+                    <p class="product-category">Administrative Office</p>
+                    <p class="product-description">Modular workstation system with integrated storage and privacy screens.</p>
+                    <div class="product-footer">
+                        <span class="product-price">Contact for Price</span>
+                        <a href="contact.html" class="product-button">Inquire Now</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Product Card 6 -->
+            <article class="product-card" data-category="storage">
+                <div class="product-image">
+                    <img src="./image/images/office furnitures/Executive Office Furniture/image_26.jpg" alt="Office Storage Unit" loading="lazy">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Office Storage Unit</h3>
+                    <p class="product-category">Storage</p>
+                    <p class="product-description">Versatile storage solution with multiple compartments and secure locking system.</p>
+                    <div class="product-footer">
+                        <span class="product-price">Contact for Price</span>
+                        <a href="contact.html" class="product-button">Inquire Now</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <!-- Pagination Controls -->
+        <div class="pagination-controls">
+            <button class="page-button prev" id="prevPage">Previous</button>
+            <div class="page-numbers">
+                <button class="page-button active">1</button>
+                <button class="page-button">2</button>
+                <button class="page-button">3</button>
+            </div>
+            <button class="page-button next" id="nextPage">Next</button>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Company Info Column -->
+            <div class="footer-column">
+                <h3>About Setora</h3>
+                <p>Premium office furniture solutions for modern workplaces. We help businesses create inspiring and productive environments that enhance employee well-being and productivity.</p>
+                <div class="footer-social">
+                    <a href="#" class="social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Links Column -->
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <nav class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="products.html">Products</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="blog.html">Blog</a>
+                </nav>
+            </div>
+
+            <!-- Products Column -->
+            <div class="footer-column">
+                <h3>Our Products</h3>
+                <nav class="footer-links">
+                    <a href="products.html#desks">Office Desks</a>
+                    <a href="products.html#chairs">Office Chairs</a>
+                    <a href="products.html#storage">Storage Solutions</a>
+                    <a href="products.html#meeting">Meeting Room Furniture</a>
+                    <a href="products.html#accessories">Accessories</a>
+                </nav>
+            </div>
+
+            <!-- Contact Column -->
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <div class="footer-contact">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Business Street, City, Country</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+1 234 567 8900</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@setoradesign.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p>&copy; 2024 Setora Design. All rights reserved.</p>
+            <p>
+                <a href="privacy.html">Privacy Policy</a> | 
+                <a href="terms.html">Terms of Service</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Product category filtering and pagination
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryButtons = document.querySelectorAll('.category-button');
+            const productCards = document.querySelectorAll('.product-card');
+            const prevPageButton = document.getElementById('prevPage');
+            const nextPageButton = document.getElementById('nextPage');
+            const pageButtons = document.querySelectorAll('.page-numbers .page-button');
+            
+            let currentPage = 1;
+            const productsPerPage = 6;
+            let currentCategory = 'all';
+            let filteredProducts = Array.from(productCards);
+            
+            // Function to filter products by category
+            function filterProducts(category) {
+                currentCategory = category;
+                currentPage = 1;
+                
+                if (category === 'all') {
+                    filteredProducts = Array.from(productCards);
+                } else {
+                    filteredProducts = Array.from(productCards).filter(card => 
+                        card.getAttribute('data-category') === category
+                    );
+                }
+                
+                displayProducts();
+                updatePagination();
+            }
+            
+            // Function to update pagination
+            function updatePagination() {
+                const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+                
+                // Update page buttons
+                pageButtons.forEach((button, index) => {
+                    if (index < totalPages) {
+                        button.style.display = 'inline-flex';
+                        button.classList.toggle('active', index + 1 === currentPage);
+                    } else {
+                        button.style.display = 'none';
+                    }
+                });
+                
+                // Update prev/next buttons
+                prevPageButton.disabled = currentPage === 1;
+                nextPageButton.disabled = currentPage === totalPages;
+            }
+            
+            // Function to go to specific page
+            function goToPage(page) {
+                currentPage = page;
+                displayProducts();
+                updatePagination();
+                
+                // Scroll to top of products section
+                const productsContainer = document.querySelector('.products-container');
+                if (productsContainer) {
+                    productsContainer.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+            
+            // Function to display products for current page
+            function displayProducts() {
+                const start = (currentPage - 1) * productsPerPage;
+                const end = start + productsPerPage;
+                
+                // Hide all products
+                productCards.forEach(card => {
+                    card.style.display = 'none';
+                });
+                
+                // Show products for current page
+                filteredProducts.slice(start, end).forEach(card => {
+                    card.style.display = 'flex';
+                });
+            }
+            
+            // Add event listeners to category buttons
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Filter products
+                    filterProducts(this.getAttribute('data-category'));
+                });
+            });
+            
+            // Add event listeners to pagination buttons
+            pageButtons.forEach((button, index) => {
+                button.addEventListener('click', () => goToPage(index + 1));
+            });
+            
+            prevPageButton.addEventListener('click', () => {
+                if (currentPage > 1) {
+                    goToPage(currentPage - 1);
+                }
+            });
+            
+            nextPageButton.addEventListener('click', () => {
+                const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+                if (currentPage < totalPages) {
+                    goToPage(currentPage + 1);
+                }
+            });
+            
+            // Initialize
+            displayProducts();
+            updatePagination();
+            
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            const navActions = document.querySelector('.nav-actions');
+            
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                    navActions.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html> 

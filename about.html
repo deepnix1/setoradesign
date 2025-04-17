@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Setora Design - Premium Office Furniture Solutions">
+    <title>About Us - Setora Design</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* About page specific styles */
+        .about-hero {
+            position: relative;
+            height: 60vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 4rem;
+        }
+
+        .about-hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .about-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .about-hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+        }
+
+        .about-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem 6rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 6rem;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-text);
+        }
+
+        .about-content p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--color-text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Vision Section */
+        .vision-section {
+            padding: 6rem 0;
+            background-color: var(--color-secondary);
+            margin-bottom: 6rem;
+        }
+
+        .vision-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .vision-container h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--color-text);
+        }
+
+        .vision-container p {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: var(--color-text-secondary);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        .vision-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .vision-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .vision-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .vision-card i {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .vision-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-text);
+        }
+
+        .vision-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--color-text-secondary);
+            margin-bottom: 0;
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 6rem 0;
+            margin-bottom: 6rem;
+        }
+
+        .values-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .values-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .values-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-text);
+        }
+
+        .values-header p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--color-text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+        }
+
+        .value-item {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .value-icon {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            background: var(--color-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .value-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--color-text);
+        }
+
+        .value-content p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--color-text-secondary);
+        }
+
+        /* Client Success Section */
+        .client-success-section {
+            padding: 6rem 0;
+            background-color: var(--color-secondary);
+            margin-bottom: 6rem;
+        }
+
+        .client-success-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .client-success-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .client-success-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-text);
+        }
+
+        .client-success-header p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--color-text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            margin-bottom: 5rem;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .testimonial-quote {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: var(--color-text);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .testimonial-author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-author-info h4 {
+            font-size: 1.125rem;
+            margin-bottom: 0.25rem;
+            color: var(--color-text);
+        }
+
+        .testimonial-author-info p {
+            font-size: 0.875rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 0;
+        }
+
+        .quote-icon {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            color: var(--color-primary);
+            opacity: 0.2;
+        }
+
+        /* Client Logos */
+        .client-logos {
+            margin-bottom: 5rem;
+        }
+
+        .client-logos h3 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--color-text);
+        }
+
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .logo-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80px;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .logo-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .logo-item img {
+            max-width: 100%;
+            max-height: 100%;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: filter 0.3s ease, opacity 0.3s ease;
+        }
+
+        .logo-item:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        /* Achievement Stats */
+        .achievement-stats {
+            background: white;
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 1.125rem;
+            color: var(--color-text);
+        }
+
+        /* Responsive styles */
+        @media (max-width: 1024px) {
+            .testimonial-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .logo-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-grid, .values-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content h2, .vision-container h2, .values-header h2, .client-success-header h2 {
+                font-size: 2rem;
+            }
+            
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .vision-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-hero {
+                height: 40vh;
+                min-height: 300px;
+            }
+
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .logo-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .achievement-stats {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="index.html" class="logo">
+                <img src="./assets/setora_logo1.png" alt="Setora Design Logo" class="logo-image">
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="about.html" class="active">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <a href="contact.html" class="nav-button primary">Contact Sales</a>
+                <a href="products.html" class="nav-button">View Products</a>
+            </div>
+            <button class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="about-hero-content">
+            <h1 data-lang-key="about.title">About Us</h1>
+            <p data-lang-key="about.subtitle">Crafting excellence in furniture design since 2015</p>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="about-container">
+            <div class="about-grid">
+                <div class="about-content">
+                <h2 data-lang-key="about.story.title">Our Story</h2>
+                <p data-lang-key="about.story.p1">Founded in 2015, Setora Design has been at the forefront of modern furniture design. Our philosophy combines Scandinavian minimalism with contemporary aesthetics, creating pieces that are both beautiful and functional.</p>
+                <p data-lang-key="about.story.p2">We believe in sustainable design practices and work closely with local artisans to create furniture that lasts generations. Each piece tells a story of craftsmanship and attention to detail.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" alt="Setora Design Workshop">
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="vision-section">
+        <div class="vision-container">
+            <h2>Our Vision</h2>
+            <p>We envision a world where every workspace is thoughtfully designed to inspire creativity, enhance productivity, and promote well-being. Our mission is to transform ordinary offices into extraordinary environments.</p>
+            <div class="vision-grid">
+                <div class="vision-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Innovation</h3>
+                    <p>We constantly push the boundaries of design and functionality to create furniture that meets the evolving needs of modern workspaces.</p>
+                </div>
+                <div class="vision-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Sustainability</h3>
+                    <p>We are committed to environmentally responsible practices, using sustainable materials and reducing our carbon footprint.</p>
+                </div>
+                <div class="vision-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Collaboration</h3>
+                    <p>We work closely with our clients to understand their unique needs and create customized solutions that exceed expectations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="values-container">
+            <div class="values-header">
+                <h2>Our Values</h2>
+                <p>These core principles guide everything we do at Setora Design</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-hammer"></i>
+                    </div>
+                    <div class="value-content">
+                        <h3 data-lang-key="about.values.craftsmanship.title">Craftsmanship</h3>
+                        <p data-lang-key="about.values.craftsmanship.desc">Every piece is meticulously crafted with attention to detail and quality materials.</p>
+                    </div>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <div class="value-content">
+                        <h3 data-lang-key="about.values.sustainability.title">Sustainability</h3>
+                        <p data-lang-key="about.values.sustainability.desc">We prioritize eco-friendly materials and sustainable production methods.</p>
+                    </div>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="value-content">
+                        <h3 data-lang-key="about.values.innovation.title">Innovation</h3>
+                        <p data-lang-key="about.values.innovation.desc">Constantly pushing boundaries in furniture design and functionality.</p>
+                    </div>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="value-content">
+                        <h3 data-lang-key="about.values.collaboration.title">Collaboration</h3>
+                        <p data-lang-key="about.values.collaboration.desc">Working closely with clients to bring their vision to life.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Setora Design</h3>
+                <p>Premium office furniture solutions designed to enhance productivity and inspire creativity in your workspace.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="products.html">Products</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Products</h3>
+                <div class="footer-links">
+                    <a href="products.html">Executive Office</a>
+                    <a href="products.html">Administrative Office</a>
+                    <a href="products.html">Operational Office</a>
+                    <a href="products.html">Meeting & Conference</a>
+                    <a href="products.html">Reception & Waiting</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <div class="footer-contact">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Design Street, Creative District, New York, NY 10001</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+1 (555) 123-4567</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@setoradesign.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Setora Design. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html> 

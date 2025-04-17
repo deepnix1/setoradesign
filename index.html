@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Setora Design - Premium Office Furniture Solutions">
+    <title>Setora - Furniture & Design</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+        /* Additional styles for homepage */
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to right, rgba(13, 17, 23, 0.85), rgba(13, 17, 23, 0.7));
+            z-index: 1;
+        }
+
+        .hero-container {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+        }
+
+        .hero-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .experience-section {
+            padding: 8rem 2rem;
+            background: linear-gradient(to bottom, transparent, rgba(55, 125, 125, 0.05));
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .experience-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.03));
+            transform: translateY(100%);
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .experience-card:hover::before {
+            transform: translateY(0);
+        }
+
+        .experience-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .experience-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-primary);
+        }
+
+        .experience-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .experience-card p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+        }
+
+        .showcase-section {
+            padding: 8rem 2rem;
+        }
+
+        .showcase-header {
+            text-align: center;
+            margin-bottom: 6rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .showcase-header h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.8));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .showcase-header p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 968px) {
+            .experience-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="index.html" class="logo">
+                <img src="./assets/setora_logo1.png" alt="Setora Furniture & Design" class="logo-image">
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="products.html">Products</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <a href="contact.html" class="nav-button">Contact Sales</a>
+                <a href="products.html" class="nav-button primary">View Products</a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-background">
+                <div class="background-layer layer1"></div>
+                <div class="background-layer layer2"></div>
+                <div class="overlay"></div>
+            </div>
+            <div class="hero-split">
+                <div class="hero-content">
+                    <h1>Transform Your Workspace</h1>
+                    <p>Discover our premium collection of modern office furniture designed for comfort, productivity, and style.</p>
+                    <div class="hero-buttons">
+                        <a href="products.html" class="cta-button">Explore Products</a>
+                        <a href="contact.html" class="cta-button secondary">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-section">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <h3>15+</h3>
+                    <p>Years Experience</p>
+                </div>
+                <div class="stat-item">
+                    <h3>1000+</h3>
+                    <p>Projects Completed</p>
+                </div>
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <p>Happy Clients</p>
+                </div>
+                <div class="stat-item">
+                    <h3>300+</h3>
+                    <p>Products</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="product-section">
+            <div class="product-header">
+                <h2 class="section-title">Featured Products</h2>
+                <p>Explore our collection of premium office furniture designed for modern workspaces</p>
+            </div>
+            
+            <div class="product-filters">
+                <button class="filter-button active" data-filter="all">All Products</button>
+                <button class="filter-button" data-filter="executive">Executive Office</button>
+                <button class="filter-button" data-filter="operational">Operational Office</button>
+                <button class="filter-button" data-filter="meeting">Meeting Rooms</button>
+                <button class="filter-button" data-filter="break">Break Areas</button>
+            </div>
+
+            <div class="product-grid">
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="./image/images/office furnitures/Executive Office Furniture/image_31.jpg" alt="Executive Desk Set" loading="lazy">
+                        <span class="product-badge">Featured</span>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Executive Desk Set</h3>
+                        <p class="product-category">Executive Office</p>
+                        <p class="product-description">Premium executive desk with integrated storage and cable management system.</p>
+                        <div class="product-footer">
+                            <span class="product-price">Contact for Price</span>
+                            <button class="product-button">Inquire Now</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="./image/images/office furnitures/Executive Office Furniture/image_30.jpg" alt="Modern Conference Table" loading="lazy">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Modern Conference Table</h3>
+                        <p class="product-category">Meeting Rooms</p>
+                        <p class="product-description">Elegant conference table with built-in power solutions and sleek design.</p>
+                        <div class="product-footer">
+                            <span class="product-price">Contact for Price</span>
+                            <button class="product-button">Inquire Now</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="./image/images/office furnitures/Executive Office Furniture/image_29.jpg" alt="Modern Workstation" loading="lazy">
+                        <span class="product-badge">New</span>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Modern Workstation</h3>
+                        <p class="product-category">Operational Office</p>
+                        <p class="product-description">Ergonomic workstation designed for maximum productivity and comfort.</p>
+                        <div class="product-footer">
+                            <span class="product-price">Contact for Price</span>
+                            <button class="product-button">Inquire Now</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="product-pagination" role="navigation" aria-label="Product pages">
+                <button class="page-button prev" aria-label="Previous page">Previous</button>
+                <button class="page-button active" aria-current="page">1</button>
+                <button class="page-button">2</button>
+                <button class="page-button">3</button>
+                <button class="page-button next" aria-label="Next page">Next</button>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="cta-container">
+                <h2>Ready to Transform Your Office?</h2>
+                <p>Contact our team of experts to find the perfect furniture solutions for your workspace.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="cta-button">Contact Sales</a>
+                    <a href="products.html" class="cta-button secondary">View All Products</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Company Info Column -->
+            <div class="footer-column">
+                <h3>About Setora</h3>
+                <p>Premium office furniture solutions for modern workplaces. We help businesses create inspiring and productive environments that enhance employee well-being and productivity.</p>
+                <div class="footer-social">
+                    <a href="#" class="social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Links Column -->
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <nav class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="products.html">Products</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="blog.html">Blog</a>
+                </nav>
+            </div>
+
+            <!-- Products Column -->
+            <div class="footer-column">
+                <h3>Our Products</h3>
+                <nav class="footer-links">
+                    <a href="products.html#desks">Office Desks</a>
+                    <a href="products.html#chairs">Office Chairs</a>
+                    <a href="products.html#storage">Storage Solutions</a>
+                    <a href="products.html#meeting">Meeting Room Furniture</a>
+                    <a href="products.html#accessories">Accessories</a>
+                </nav>
+            </div>
+
+            <!-- Contact Column -->
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <div class="footer-contact">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Business Street, City, Country</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+1 234 567 8900</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@setoradesign.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p>&copy; 2024 Setora Design. All rights reserved.</p>
+            <p>
+                <a href="privacy.html">Privacy Policy</a> | 
+                <a href="terms.html">Terms of Service</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="scripts.js"></script>
+</body>
+</html> 
