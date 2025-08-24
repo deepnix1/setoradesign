@@ -1,0 +1,35 @@
+[build]
+  # Build command for the frontend
+  command = "npm run build:frontend"
+  # Directory to publish (frontend build output)
+  publish = "dist/public"
+
+[build.environment]
+  # Node.js version
+  NODE_VERSION = "20"
+  # Build environment
+  NODE_ENV = "production"
+
+# Redirect all routes to index.html for SPA routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# API proxy to external backend (when deployed)
+[[redirects]]
+  from = "/api/*"
+  to = "https://your-backend-url.com/api/:splat"
+  status = 200
+  force = true
+
+# Environment variables (set these in Netlify dashboard)
+[context.production.environment]
+  VITE_API_URL = "https://your-backend-url.com"
+  VITE_CHAIN_ID = "13579"
+  VITE_RPC_URL = "https://testnet.rpc.intuition.systems/http"
+
+[context.deploy-preview.environment]
+  VITE_API_URL = "https://your-staging-backend-url.com"
+  VITE_CHAIN_ID = "13579"
+  VITE_RPC_URL = "https://testnet.rpc.intuition.systems/http"

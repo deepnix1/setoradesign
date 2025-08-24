@@ -1,0 +1,5 @@
+# SPA routing - redirect all routes to index.html
+/*    /index.html   200
+
+# API proxy to backend (replace with your actual backend URL)
+/api/*  https://your-backend-url.com/api/:splat  200
